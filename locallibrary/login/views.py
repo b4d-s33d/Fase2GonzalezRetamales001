@@ -10,3 +10,12 @@ def index(request):
         'index.html',
         context={'num_books':num_books, 'num_authors':num_authors,}
     )
+
+def ranking(request):  
+    return render(request, 'ranking.html')  
+
+def login(request):  
+    return render(request, 'login.html')  
+
+def register(request):  
+    return render(request, 'register.html')          
