@@ -17,6 +17,7 @@ class Libro(models.Model):
 	resumen = models.TextField(max_length=1000, help_text='Ingrese una breve descripción del libro')
 	isbn = models.CharField('ISBN', max_length=13, help_text='13 Character <a href="isbn-international.org/content/what-isbn">ISBN number</a>')
 	genero = models.ManyToManyField(Genero)
+	caratula = models.ImageField(upload_to='libros', default='undefined.png')
     
 	def __str__(self):
 		return self.titulo

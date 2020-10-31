@@ -1,13 +1,27 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-<h1>Local Library Home</h1>
-<p>Bienvenido a <em>LocalLibrary</em>, sitio web DJango </p>
-<h2>Contenido dinamico</h2>
-
-<p>La libreria tiene los siguientes registros</p>
-<ul>
-    <li><strong>Libros:</strong>{{ num_books }}</li>
-    <li><strong>Autores:</strong>{{ num_authors }}</li>
-</ul>
+<main role="main" class="container">
+    <h3 class="lead" style="color: #596272"><strong>Ranking BookStop</strong></h3><br>
+    {% for book in books %}
+        <div class="row" id="top10">
+            <div class="col-3">
+                <img class="thumbnail" src="{{ book.caratula.url }}">
+            </div>
+            <div class="col-6">
+                <h3>1 - {{ book.titulo }}</h3>
+                <a href="#" id="linkLibro">
+                    <h6>{{ book.genero.nombre }}</h6>
+                </a>
+                
+                <p>{{ book.resumen }}</p>
+            </div>
+            <div class="col-3">
+                <input class="btn btn-primary btn-block" type="button" id="boton1" name="ver" value="Ver">
+                <input class="btn btn-primary btn-block" type="button" id="boton2" name="ver" value="Reseñas">
+            </div>
+        </div>
+        <br>
+    {% endfor %}
+</main>
 {% endblock %}

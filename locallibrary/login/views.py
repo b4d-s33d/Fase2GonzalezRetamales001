@@ -12,7 +12,8 @@ def index(request):
     )
 
 def ranking(request):  
-    return render(request, 'ranking.html')  
+    books = Libro.objects.all()
+    return render(request, 'ranking.html', context={'books':books,})  
 
 def login(request):  
     return render(request, 'login.html')  
