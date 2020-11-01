@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<main role="main" class="container">
+    <div class="row" id="title">
+        <div class="col-3">
+            <img class="img-fluid" src="{{ libro.caratula.url }}">
+        </div>
+        <div class="col-9">
+            <h1>Titulo: {{ libro.titulo }}</h1>
+            <h3>Autor: {{ libro.autor }}</h3>
+            <h4>Genero: {{ libro.genero.first }}</h4>
+            <h6>ISBN: {{ libro.isbn }}</h6>
+            <p>{{ libro.resumen }}</p>
+        </div>
+    </div>
+</main>
+{% endblock %}

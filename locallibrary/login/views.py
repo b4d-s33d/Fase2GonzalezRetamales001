@@ -20,3 +20,8 @@ def login(request):
 
 def register(request):  
     return render(request, 'register.html')          
+
+from django.views import generic
+
+class BookDetailView(generic.DetailView):
+    model = Libro

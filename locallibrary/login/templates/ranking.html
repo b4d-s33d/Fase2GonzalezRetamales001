@@ -9,15 +9,13 @@
                 <img class="thumbnail" src="{{ book.caratula.url }}">
             </div>
             <div class="col-6">
-                <h3>1 - {{ book.titulo }}</h3>
-                <a href="#" id="linkLibro">
-                    <h6>{{ book.genero.nombre }}</h6>
-                </a>
-                
-                <p>{{ book.resumen }}</p>
+                <h1>{{ forloop.counter }} - {{ book.titulo }}</h1>
+                <h3>{{ book.autor }}</h3>
+                <h6>{{ book.genero.first }}</h6>
             </div>
             <div class="col-3">
-                <input class="btn btn-primary btn-block" type="button" id="boton1" name="ver" value="Ver">
+                <!--input class="btn btn-primary btn-block" type="button" id="boton1" name="ver" value="Ver"-->
+                <a href="{% url 'book-detail' book.pk %}" class="btn btn-primary btn-block" role="button">Ver</a>
                 <input class="btn btn-primary btn-block" type="button" id="boton2" name="ver" value="Reseñas">
             </div>
         </div>
