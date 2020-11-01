@@ -1,6 +1,12 @@
 from django.shortcuts import render
 from .models import Libro, Autor, Genero
 
+
+#Para creación de forms
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from django.views import generic
+
 # Create your views here.
 def index(request):
     num_books = Libro.objects.all().count()
@@ -19,9 +25,22 @@ def login(request):
     return render(request, 'login.html')  
 
 def register(request):  
-    return render(request, 'register.html')          
+    return render(request, 'register.html')  
 
-from django.views import generic
+
+class CrearLibro(CreateView):
+    model = Libro
+    fields = '__all__'
+    
+class ActualizarLibro(UpdateView):
+    model = Libro
+    fields = '__all__'
+
+class EliminarLibro(DeleteView):
+    model = Libro
+    success_url = reverse_lazy('ranking')            
 
 class BookDetailView(generic.DetailView):
     model = Libro
+
+

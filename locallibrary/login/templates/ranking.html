@@ -2,21 +2,30 @@
 
 {% block content %}
 <main role="main" class="container">
-    <h3 class="lead" style="color: #596272"><strong>Ranking BookStop</strong></h3><br>
+    <h3 class="lead" style="color: #596272"><strong>Ranking BookStop</strong></h3>
+    <div class="row" id="top10" style="box-shadow: none; background-color: #F8F9FA; margin-top: -54px;">
+        <div class="col-9"></div>
+        <div class="col-3">
+            <a href="{% url 'crear_libro' %}" class="btn btn-primary btn-block" role="button">Agregar</a>
+        </div>        
+    </div>
+    
     {% for book in books %}
         <div class="row" id="top10">
             <div class="col-3">
                 <img class="thumbnail" src="{{ book.caratula.url }}">
             </div>
             <div class="col-6">
-                <h1>{{ forloop.counter }} - {{ book.titulo }}</h1>
-                <h3>{{ book.autor }}</h3>
-                <h6>{{ book.genero.first }}</h6>
+                <h2>{{ forloop.counter }} - {{ book.titulo }}</h2>
+                <h4>{{ book.autor }}</h4>
+                <h5>{{ book.genero.first }}</h5>
             </div>
             <div class="col-3">
-                <!--input class="btn btn-primary btn-block" type="button" id="boton1" name="ver" value="Ver"-->
                 <a href="{% url 'book-detail' book.pk %}" class="btn btn-primary btn-block" role="button">Ver</a>
-                <input class="btn btn-primary btn-block" type="button" id="boton2" name="ver" value="Reseñas">
+                <input class="btn btn-primary btn-block" type="button" id="boton1" name="ver" value="Reseña"/>
+                <!--<a href="{% url 'actualizar_libro' book.pk %}" class="btn btn-primary btn-block" role="button">Actualizar</a>-->
+                <!--<a href="{% url 'eliminar_libro' book.pk %}" class="btn btn-primary btn-block" role="button">Eliminar</a>-->
+                
             </div>
         </div>
         <br>

@@ -2,17 +2,28 @@
 
 {% block content %}
 <main role="main" class="container">
-    <div class="row" id="title">
+    <h3 class="lead" style="color: #596272"><strong>Detalle del libro</strong></h3>
+    <div class="row" id="top10" style="box-shadow: none; background-color: #F8F9FA; margin-top: -54px;">
+        <div class="col-6"></div> 
+        <div class="col-3">
+            <a href="{% url 'actualizar_libro' libro.pk %}" class="btn btn-primary btn-block" role="button">Actualizar</a>
+        </div>       
+        <div class="col-3">           
+            <a href="{% url 'eliminar_libro' libro.pk %}" class="btn btn-primary btn-block" role="button">Eliminar</a>
+        </div>    
+           
+    </div>
+    <div class="row" id="top10" style="align-items: stretch;">
         <div class="col-3">
             <img class="img-fluid" src="{{ libro.caratula.url }}">
         </div>
         <div class="col-9">
             <h1>Titulo: {{ libro.titulo }}</h1>
-            <h3>Autor: {{ libro.autor }}</h3>
-            <h4>Genero: {{ libro.genero.first }}</h4>
+            <h4>Autor: {{ libro.autor }}</h4>
+            <h5>Genero: {{ libro.genero.first }}</h5>
             <h6>ISBN: {{ libro.isbn }}</h6>
-            <p>{{ libro.resumen }}</p>
+            <p style="text-align: justify;">{{ libro.resumen }}</p>
         </div>
     </div>
-</main>
+</main><br>
 {% endblock %}

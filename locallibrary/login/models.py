@@ -26,12 +26,13 @@ class Libro(models.Model):
 		"""Returns the url to access a detail record for this book."""
 		return reverse('book-detail', args=[str(self.id)])
 
+
 class Autor(models.Model):
 	"""Model representing an author."""
 	nombre = models.CharField(max_length=100)
 	apellido = models.CharField(max_length=100)
 	fecha_nac = models.DateField(null=True, blank=True)
-	fecha_fall = models.DateField('Died', null=True, blank=True)
+	fecha_fall = models.DateField('Fecha fall', null=True, blank=True)
 
 	class Meta:
 		ordering = ['apellido', 'nombre']

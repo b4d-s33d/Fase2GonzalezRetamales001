@@ -1,0 +1,24 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<main role="main" class="container">
+    <h3 class="lead" style="color: #596272"><strong>Registrar libro</strong></h3><br>
+    <div id="top10">
+        <div class="container col-4">
+            <form action="" method="POST" class="post-form" enctype="multipart/form-data">
+                <div class="text-center mb-4">
+                    <br>
+                    <h1>Registrar Libro</h1>
+                </div>
+                <div>
+                    {%csrf_token%}
+                    <table style="font-size: 13px;">
+                        {{form.as_table}}
+                    </table>
+                    <input type="submit" class="btn btn-lg btn-outline-success btn-block mt-4 mb-5" value="Enviar">
+                </div>
+            </form>
+        </div>
+    </div>
+</main><br>
+{% endblock %}
