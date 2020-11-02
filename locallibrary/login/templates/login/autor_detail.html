@@ -13,11 +13,11 @@
         </div>    
            
     </div>
-    <div class="row" id="top10" style="align-items: stretch;">
-        <div class="col-3">
+    <div class="row" id="top10" >
+        <div class="col-0">
             <!--img class="img-fluid" src="{{ libro.caratula.url }}"-->
         </div>
-        <div class="col-9">
+        <div class="col-12 text-center" >
             <h1>Nombre: {{ autor }}</h1>
             <h6>Fecha de nacimiento: {{ autor.fecha_nac }}</h6>
             <h6>Fecha de defuncion: {{ autor.fecha_fall }}</h6>
@@ -27,14 +27,14 @@
     <h3 class="lead pb-2" style="color: #596272"><strong>Obras publicadas</strong></h3>
     <div class="row">
         {% for book in autor.libro_set.all %}
-        <div class="col-md-4 hm-100">
-            <div class="card text-center h-100">
+        <div class="col-md-4 hm-100" style="margin-bottom: 25px;">
+            <div class="card text-center h-100 mt-3">
                 <img class="card-img-top mx-auto pt-4" src="{{ book.caratula.url }}">
                 <div class="card-body pb-0">
                     <h4 class="card-title">{{ book.titulo }}</h4>
-                    <p class="card-text">{{book.genero.first}}</p> <br>
+                    <p class="card-text">{{book.genero.first}}</p> 
                 </div>
-                <div class="card-footer pt-0" style="background: transparent; border-top: 0px;">
+                <div class="card-footer pb-4" style="background: transparent; border-top: 0px;">
                     <a href="{% url 'book-detail' book.pk %}" class="btn btn-primary col-12">Ver</a>
                 </div>
             </div>
