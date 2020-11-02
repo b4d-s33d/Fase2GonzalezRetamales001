@@ -19,7 +19,7 @@
         </div>
         <div class="col-9">
             <h1>Titulo: {{ libro.titulo }}</h1>
-            <h4>Autor: {{ libro.autor }}</h4>
+            <a href="{% url 'author-detail' libro.autor.pk %}"> <h4>Autor: {{ libro.autor }}</h4> </a>
             <h5>Genero: {{ libro.genero.first }}</h5>
             <h6>ISBN: {{ libro.isbn }}</h6>
             <p style="text-align: justify;">{{ libro.resumen }}</p>

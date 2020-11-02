@@ -44,3 +44,20 @@ class BookDetailView(generic.DetailView):
     model = Libro
 
 
+class CrearAutor(CreateView):
+    model = Autor
+    fields = '__all__'
+    
+class ActualizarAutor(UpdateView):
+    model = Autor
+    fields = '__all__'
+
+class EliminarAutor(DeleteView):
+    model = Autor
+    success_url = reverse_lazy('ranking')            
+
+class AuthorDetailView(generic.DetailView):
+    model = Autor
+
+
+
